@@ -1,0 +1,492 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Traductor Online</title>
+
+<style fprolloverstyle>A:hover {color: #FF0000}
+</style>
+
+<meta name="keywords" content="Traductor ">
+
+<script src="http://www.worldlingo.com/es/scripts/languages.js"></script>
+<script language="javascript">
+<!--
+
+function isEmpty(str){
+	if (str.length == 0){ return true; }
+	if (str.search(/\S/) == -1){ return true; }
+	return false;
+}
+
+function isValidURL(str,blnRequired){
+	if (isEmpty(str) && (blnRequired)){ return false; }
+	if (!isEmpty(str)){
+		if (str.search(" ") > -1){ return false; }
+		if (str.search(/\./) == -1){ return false; }
+		for(i=0;i<=str.length;i++){ if(str.charCodeAt(i) > 128){ return false; } }
+	}
+	// List of invalid extensions separated by "|"
+	var strArray = "avi|css|doc|exe|gif|jpeg|jpg|js|mpg|mpeg|pdf|swf|rar|rtf|wav|zip"
+	var extArray = strArray.split("|");
+	for (var i=0; i < extArray.length; i++)	{
+		if (str.substring(str.length-extArray[i].length-1, str.length) == "."+extArray[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function validateForm(form) {
+	if (isEmpty(form.SrcText.value)) {
+		alert("No ha insertado ningún texto para traducir. Rogamos escriba el texto que quiera traducir antes de proseguir.") ;
+		form.SrcText.focus() ;
+		return false ;
+	}
+	if (form.SrcText.value.length > 10000) {
+		alert("Su traducción supera los 10.000 caracteres. Rogamos limite la extensión de su texto antes de proseguir.") ;
+		form.SrcText.focus() ;
+		return false ;
+	}
+	return true ;
+}
+
+var submittedText = false;
+function submitText() {
+	if (!submittedText) { if (validateForm(document.textform)) { submittedText = true; document.textform.submit(); } }
+	else { alert("Su traducción se está llevando a cabo. Rogamos espere unos segundos."); }
+}
+
+function validateFormURL(form) {
+	return isValidURL(form.Url.value, 1);
+}
+
+var submittedURL = false;
+function submitURL() {
+	if (!submittedURL) {
+		if (validateFormURL(document.urlform)) { submittedURL = true; document.urlform.submit(); }
+		else { alert("Lamentamos comunicarle que esta extensión no es compatible."); }
+	}
+	else { alert("Your request is being processed. Please wait."); }
+}
+function changeURL(field) {
+	if (submittedURL) {
+		field.blur();
+		alert("Su primera traducción se está llevando a cabo. Rogamos espere unos segundos.");
+	}
+}
+
+function handleListChange(theList) {
+	var numSelected = theList.selectedIndex ;
+	if (numSelected != 0) {
+		textValue = document.textform.SrcText.value ;
+		textValue = textValue + theList.options[numSelected].value ;
+		document.textform.SrcText.value = textValue ;
+		theList.selectedIndex = 0 ;
+		document.textform.SrcText.focus() ;
+	}
+}
+
+function ClearSrcText() {
+	document.textform.SrcText.value = "" ;
+	document.textform.SrcText.focus() ;
+}
+
+function ClearUrl() {
+	document.urlform.Url.value = "" ;
+	document.urlform.Url.focus() ;
+}
+
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+popUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+//-->
+</script>
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+
+HM_PG_MenuWidth = 170;
+HM_PG_FontFamily = "Arial, sans-serif";
+HM_PG_FontSize = 9;
+HM_PG_FontBold = 0;
+HM_PG_FontItalic = 0;
+HM_PG_FontColor = "blue";
+HM_PG_FontColorOver = "white";
+HM_PG_BGColor = "#DDDDDD";
+HM_PG_BGColorOver = "#FFCCCC";
+HM_PG_ItemPadding = 3;
+
+HM_PG_BorderWidth = 2;
+HM_PG_BorderColor = "black";
+HM_PG_BorderStyle = "solid";
+HM_PG_SeparatorSize = 1;
+HM_PG_SeparatorColor = "#004538";
+
+HM_PG_ImageSrc = "/images/menu/HM_More_black_right.gif";
+HM_PG_ImageSrcLeft = "/images/menu/HM_More_black_left.gif";
+HM_PG_ImageSrcOver = "/images/menu/HM_More_white_right.gif";
+HM_PG_ImageSrcLeftOver = "/images/menu/HM_More_white_left.gif";
+
+HM_PG_ImageSize = 5;
+HM_PG_ImageHorizSpace = 0;
+HM_PG_ImageVertSpace = 2;
+
+HM_PG_KeepHilite = true; 
+HM_PG_ClickStart = 0;
+HM_PG_ClickKill = false;
+HM_PG_ChildOverlap = 4;
+HM_PG_ChildOffset = 4;
+HM_PG_ChildPerCentOver = null;
+HM_PG_TopSecondsVisible = .5;
+HM_PG_StatusDisplayBuild =0;
+HM_PG_StatusDisplayLink = 0;
+HM_PG_UponDisplay = null;
+HM_PG_UponHide = null;
+HM_PG_RightToLeft = 0;
+
+HM_PG_CreateTopOnly = 0;
+HM_PG_ShowLinkCursor = 1;
+HM_PG_NSFontOver = true;
+
+//HM_a_TreesToBuild = [2];
+
+//-->
+</script>
+<script language="JavaScript1.2" src="/modules/js/HM_Loader.js" type="text/javascript"></script>
+<script language="JavaScript">
+						function CheckStr(userInput)
+						{
+            StrLen = window.document.textform.wl_text.value.length;
+            if (StrLen > 900 )
+						{
+						window.document.textform.wl_text.value = window.document.textform.wl_text.value.substring(0,900);
+						StrLeft = 0;
+						}
+            else						{
+						StrLeft = 900 - StrLen;
+						}
+						document.textform.num.value = StrLeft;
+						}
+</script>
+
+
+</head>
+
+<body background="index/fondougr.gif">
+
+<div align="center">
+	<table border="0" width="64%">
+		<tr>
+			<td colspan="4">
+			<a href="index.html">La Web</a></td>
+		</tr>
+		<tr>
+			<td colspan="4">
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			<font size="7" color="#FF0000" face="Verdana">TRADUCTOR</font></p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			<font size="2" face="Verdana">Si se te dan mal los idiomas......</font></p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			&nbsp;</p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			<font face="Verdana">
+			<a target="_blank" href="http://www.englishpage.com/index.html">
+			englishpage</a> ||
+			<a target="_blank" href="http://www.vaughanradio.com/" style="text-decoration: none">
+			VaughanRadio</a></font></p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			&nbsp;</p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			<font face="Verdana" size="4">
+			<b>
+			<a target="_blank" href="http://www.pons.de/">Diccionario Alemán</a> </b></font>
+			<font face="Verdana">
+			|| <a target="_blank" href="http://www.aprendealeman.com/">Aprender 
+			Aleman</a></font></p>
+			<p align="center" style="margin-top: 0; margin-bottom: 0">
+			&nbsp;</p></td>
+		</tr>
+		<tr>
+			<td width="18%">
+			<p align="center"><font size="7" face="Arial Black">1</font></td>
+			<td width="67%" colspan="2">
+			<p align="center">
+			<a target="_blank" href="http://translate.google.es/">
+			<img border="0" src="index/translate_beta_res.gif" width="157" height="59"></a></td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">&nbsp;</td>
+			<td width="67%" colspan="2">
+			<p>&nbsp;</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">
+			<p align="center" style="margin-top: 0; margin-bottom: 0"><font face="Arial Black" size="7">2</font><p align="center">&nbsp;</td>
+			<td width="34%">
+			<p align="center">
+			<a target="_blank" href="http://tradukka.com/" style="text-decoration: none; font-weight: 700">
+			<font size="6">TRADUKKA</font></a></td>
+			<td width="30%">
+			<p align="center"><b><font face="Verdana" size="6">
+			<a target="_blank" href="http://www.reverso.net/text_translation.asp?lang=ES" style="text-decoration: none">
+			REVERSO</a></font></b></td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">
+			&nbsp;</td>
+			<td width="67%" colspan="2">
+			&nbsp;</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">&nbsp;</td>
+			<td width="67%" colspan="2">
+			&nbsp;</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%" height="108">
+			<p align="center"><font face="Arial Black" size="7">3</font><p>&nbsp;</td>
+			<td width="67%" height="108" colspan="2">
+			<p align="center"><a target="_blank" href="http://eubd1.ugr.es/">
+			<img border="0" src="index/ingles.JPG" width="360" height="48"></a></td>
+			<td width="5%" height="108">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">&nbsp;</td>
+			<td width="67%" colspan="2">
+			&nbsp;</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%" valign="top">
+			<p align="center"><font face="Arial Black" size="7">4</font></td>
+			<td width="67%" colspan="2">
+			<form method="post" action="http://www.worldlingo.com/wl/lgtranslate/UP61481/T1/l/es/traductor.html" name="textform">
+        <table border="0" cellspacing="0" cellpadding="4" align="center" width="360" bgcolor="#EEEEEE"  style="BORDER-BOTTOM: #999999 1pt solid; BORDER-LEFT: #999999 1pt solid; BORDER-RIGHT: #999999 1pt solid; BORDER-TOP: #999999 1pt solid;">
+                <tr valign="top" align="center"> 
+                  <td> 
+                    <table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+                      <tr>
+                        <td width="100%" align="center" height="20" valign="middle">
+                          <p class="texto"><a href="http://www.logratis.com/agregar-traductor.html" target="_blank">Agrega gratis un servicio de traducción a tu 
+        sitio.</a></p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="100%" align="center"><a href="http://www.worldlingo.com"><img src="http://www.worldlingo.com/es/images/ep_wl_logo.gif" width="190" height="45" border="0"></a>
+                          <a href="http://www.worldlingo.com/products_services/document_translation.html"><img src="http://www.worldlingo.com/es/images/pro_human_small.gif" width="155" height="45" border="0"></a></td>
+                      </tr>
+                    </table>
+                    <table width="330" border="0" cellspacing="0" cellpadding="1">
+                      <tr> 
+                        
+                  <td class="texthead" colspan="2">Traductor autom&aacute;tico 
+                    de p&aacute;ginas web</td>
+                      </tr>
+                      <tr> 
+                        
+                  <td height="55" colspan="2" class="fntsize1">Para traducir, 
+                    escriba o pegue la URL (direcci&oacute;n web) debajo. <img src="http://www.worldlingo.com/images/down_arrow.gif" width="7" height="12"> 
+                    <script language="javascript">
+//-- Changes the length of the input field for Netscape Browser
+if (navigator.appName>="Netscape") {
+    document.write ('<input type="text" name="wl_url" size="25" class="url" onFocus="this.form.wl_text.value = \'\'">')
+  }else{
+    document.write ('<input type="text" name="wl_url" size="46" class="url" onFocus="this.form.wl_text.value = \'\'">')
+   }
+</script>
+                          <noscript> 
+                          <input type="text" name="wl_url" size="46" class="url" onFocus="this.form.wl_text.value = ''">
+                          </noscript> </td>
+                      </tr>
+                      <tr> 
+                        
+                  <td class="texthead" colspan="2">Traductor autom&aacute;tico 
+                    de texto</td>
+                      </tr>
+                      <tr> 
+                        
+                  <td width="240" class="fntsize1" nowrap valign="baseline">Para 
+                    traducir, escriba o pegue el texto debajo. <img src="http://www.worldlingo.com/images/down_arrow.gif" width="7" height="12"></td>
+                        <td><a href="http://www.worldlingo.com/es/products_services/special_characters.html" target="pop" onClick="window.open('http://www.worldlingo.com/es/products_services/special_characters.html','pop','height=150,width=300');"><img src="http://www.worldlingo.com/es/images/special_chars.gif" width="91" height="25" border="0" alt="Caracteres especiales"></a></td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" valign="top" class="fntsize1"> 
+                          <script language="javascript">
+//-- Changes the length of the textarea for Netscape Browser
+  if (navigator.appName>="Netscape") {
+    document.write ('<span class="textbox"><textarea class="textbox" name="wl_text" rows="7" wrap="VIRTUAL" cols="25" onFocus="this.form.wl_url.value = \'\'; CheckStr(this)" onChange="CheckStr(this)" onBlur="CheckStr(this)" onKeyDown="CheckStr(this)" onKeyUp="CheckStr(this)"></textarea></span>')
+  }else{
+    document.write ('<textarea name="wl_text" rows="7" class="textbox" wrap="VIRTUAL" cols="46" onFocus="this.form.wl_url.value = \'\'; CheckStr(this)" onChange="CheckStr(this)" onBlur="CheckStr(this)" onKeyDown="CheckStr(this)" onKeyUp="CheckStr(this)"></textarea>')
+  }
+ </script>
+                          <noscript> 
+                          <textarea name="wl_text" rows="7" class="textbox" wrap="VIRTUAL" cols="46" onFocus="this.form.wl_url.value = ''; CheckStr(this)" onChange="CheckStr(this)" onBlur="CheckStr(this)" onKeyDown="CheckStr(this)" onKeyUp="CheckStr(this)"></textarea>
+                          </noscript> 
+                          <div align="right">El texto puede contener 
+                            <input name=num value=900 class="count" size=2>
+                            caracteres. </div>
+                        </td>
+                      </tr>
+                    </table>
+                    <table width="340" border="0" cellspacing="0" cellpadding="2">
+                      <tr> 
+                        <td colspan="2" align="right"></td>
+                      </tr>
+                      <tr> 
+                        <td width="147" class="fntsize1">Tema:</td>
+                        <td align="right"> 
+                          <select name="wl_gloss">
+                      <option value="1" selected>General</option>
+                      <option>Tecnología Automotriz</option>
+                      <option>Aviación/Espacio</option>
+                      <option>Química</option>
+                      <option>Coloquial</option>
+                      <option>Computadores/Datos</option>
+                      <option>Economía/Negocios</option>
+                      <option>Electrónica</option>
+                      <option>Gastronomia</option>
+                      <option>Legal</option>
+                      <option>Ciencias Sociales</option>
+                      <option>Matemáticas</option>
+                      <option>Ingeniería Mecánica </option>
+                      <option>Medicina</option>
+                      <option>Metalurgia</option>
+                      <option>Ciencia Militar</option>
+                      <option>Naval y Marítima </option>
+                      <option>Fotografía/Optica </option>
+                      <option>Física/Energía Atómica </option>
+                      <option>Ciencias Políticas </option>
+                    </select>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td width="147" class="fntsize1">Idioma de origen:</td>
+                        <td align="right"> 
+                          <select name="wl_srclang">
+                      <option value="none" selected>Seleccione un lenguaje...</option>
+<script>listSrcLangs();</script>
+                    </select>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td width="147" class="fntsize1">Idioma de destino:</td>
+                        <td align="right"> 
+                          <select name="wl_trglang">
+                      <option value="none" selected>Seleccione un lenguaje...</option>
+<script>listTrgLangs();</script>
+                    </select>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" align="right"> 
+                          <table width="340" border="0" cellspacing="0" cellpadding="1">
+                            <tr> 
+                              
+                        <td width="207" align="right" bgcolor="#eeeeee"  style="BORDER-BOTTOM: #999999 1pt solid; BORDER-LEFT: #999999 1pt solid;" class="fntsize1">Al 
+                          oprimir el bot&oacute;n de traducci&oacute;n acepto 
+                          los <a href="http://www.worldlingo.com/es/company_information/terms_conditions02.html">t&eacute;rminos 
+                          y las condiciones. </a></td>
+                              <td align="right" width="27" bgcolor="#eeeeee" style="BORDER-BOTTOM: #999999 1pt solid;"><img src="http://www.worldlingo.com/images/hand.gif" width="26" height="15"></td>
+                              <td align="right" width="90" bgcolor="#eeeeee" valign="middle" style="BORDER-BOTTOM: #999999 1pt solid;"> 
+                                <input type="image" value="Translate" img src="http://www.worldlingo.com/es/images/machine_translate.gif" border="0" width="90" height="26" onClick="ValidateTranslatorForm(this.form); return false;" name="I1">
+                              </td>
+                            </tr>
+                            <td width="207"> 
+                          </table>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+        </form>
+			</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="18%">&nbsp;</td>
+			<td width="67%" colspan="2">
+                              <p align="center" style="margin-top: 0; margin-bottom: 0">
+								&nbsp;<div align="center">
+								<table border="0" width="97%">
+									<tr>
+										<td align="center">
+										<p align="center" style="margin-top: 0; margin-bottom: 0">
+								<b><font face="Verdana" size="4">PELIS EN INGLES&nbsp;</font></b></td>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+								<b><font face="Verdana" size="4">TESTS</font></b></td>
+									</tr>
+									<tr>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+								<font face="Verdana">
+								<a target="_blank" href="http://www.cuevana.tv/">
+								Cuevana</a></font></td>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+								<font face="Verdana">
+								<a target="_blank" href="http://tests.com/podcasts">
+								http://tests.com/podcasts</a></font></td>
+									</tr>
+									<tr>
+										<td align="center">&nbsp;</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+								<b><font face="Verdana">TÓPICOS</font></b></td>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+										<b><font face="Verdana">LISTENINGs</font></b></td>
+									</tr>
+									<tr>
+										<td align="center"><p align="center" style="margin-top: 0; margin-bottom: 0">
+								<font face="Verdana">
+								<a target="_blank" href="http://www.khanacademy.org/">
+								KhanAcademy</a></font></td>
+										<td align="center">
+										<p align="center" style="margin-top: 0; margin-bottom: 0">
+										<font face="Verdana">
+										<a target="_blank" href="http://a4esl.org/podcasts/">
+										http://a4esl.org/podcasts/</a></font></td>
+									</tr>
+									<tr>
+										<td align="center">&nbsp;</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td align="center">&nbsp;</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+									<tr>
+										<td align="center">&nbsp;</td>
+										<td align="center">&nbsp;</td>
+									</tr>
+								</table>
+								</div>
+								<p align="center" style="margin-top: 0; margin-bottom: 0">
+								&nbsp;<p align="center" style="margin-top: 0; margin-bottom: 0">&nbsp;</td>
+			<td width="5%">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+<p align="center">
+		<a href="index.html">
+		<img border="0" src="index/botonvolver.gif" width="98" height="28"></a></p>
+
+
+
+
+</body>
+
+</html>

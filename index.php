@@ -106,7 +106,7 @@
                     <p class="estilocolumna"><a target="black" href="http://mail.google.com/">Gmail</a> </p>
                     <p class="estilocolumna"><a target="black" href="http://es.mail.yahoo.com/">Yahoo</a></p>
                     <p class="estilocolumna"><a target="black" href="http://www.mail2web.com/">mail2web</a> </p>
-                    <p class="estilocolumna"><a target="black" href="https://correo.andaluciajunta.es/src/login.php">Correo Andaluz</a></p>
+                    <p class="estilocolumna"><a target="black" href="https://correo.juntadeandalucia.es/">Correo Andaluz</a></p>
                     <p class="estilocolumna"><a target="black" href="http://www.ebuddy.com/">Messenger</a> </p>
                 </div>
     		</div>
